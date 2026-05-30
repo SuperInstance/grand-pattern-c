@@ -6,7 +6,7 @@ static void room_jepa_init(gp_room_t *r, size_t window) {
     gp_jepa_init(&r->jepa, window);
 }
 
-static gp_room_t gp_room_create(const char *name) {
+static gp_room_t __attribute__((unused)) gp_room_create(const char *name) {
     gp_room_t r;
     memset(r.name, 0, sizeof(r.name));
     strncpy(r.name, name, sizeof(r.name) - 1);

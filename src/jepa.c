@@ -23,7 +23,7 @@ static void db_push(gp_vector_db_t *db, double *data, size_t dim, unsigned long 
     e->surprise = surprise;
 }
 
-static void db_free(gp_vector_db_t *db) {
+static void __attribute__((unused)) db_free(gp_vector_db_t *db) {
     for (size_t i = 0; i < db->count; i++) free(db->entries[i].data);
     free(db->entries);
     db->entries = NULL;

@@ -159,7 +159,6 @@ int main(void) {
     assert(g->tick_count == 11);
 
     // Test 29: gossip modifies vibes
-    gp_vibe_t before_gossip = g->rooms[1].vibe;
     gp_graph_gossip(g);
     // Gossip should change connected rooms slightly
 
