@@ -1,24 +1,21 @@
-# Grand Pattern - C Implementation
+# grand-pattern-c
 
-Fibonacci Dual-Direction Architecture — a cellular graph system where each cell (room) maintains dual perception/prediction databases with JEPA-style cross-comparison and double-entry bookkeeping.
+C Grand Pattern toolkit — standalone cellular graph intelligence in pure C99.
 
-## Architecture
-
-- **Perception DB (Z_in)**: stores incoming sensor embeddings
-- **Prediction DB (Z_out)**: stores predicted future embeddings
-- **JEPA mapping**: cross-DB comparison, computes prediction error (surprise)
-- **Double-entry bookkeeping**: every tick updates BOTH databases, must balance
-- **Vibe**: (position, velocity, acceleration) tuple on the embedding manifold
-- **GC**: 3-phase (merge similar → decay old → prune weak)
-- **Cellular graph**: rooms as nodes, algorithms as edges, murmur as gossip protocol
-
-## Build & Test
+## Building
 
 ```bash
 make test
 ```
 
-## Dependencies
+## Structure
 
-- C11 compiler (gcc/clang)
-- Standard library only (math.h, stdlib.h, string.h, stdio.h)
+- `include/grand_pattern.h` — Public API header
+- `src/vibe.c` — 16-dimensional vibe operations
+- `src/jepa.c` — JEPA prediction engine
+- `src/murmur.c` — Gossip protocol
+- `src/tick.c` — Temporal coordination
+- `src/signal.c` — Signal routing
+- `src/room.c` — Room cell
+- `src/graph.c` — CellGraph composition
+- `test/test_all.c` — 30 tests

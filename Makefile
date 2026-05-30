@@ -1,17 +1,12 @@
-CC = gcc
-CFLAGS = -std=c11 -Wall -Wextra -O2 -lm
-SRC = src/embedding.c src/main.c
-OUT = grand_pattern
+CC=gcc
+CFLAGS=-Wall -Wextra -std=c99 -O2 -lm
 
-all: $(OUT)
+all: test
 
-$(OUT): $(SRC) src/embedding.h
-	$(CC) $(CFLAGS) -o $(OUT) $(SRC) -lm
-
-test: $(OUT)
-	./$(OUT)
+test: test/test_all.c src/*.c
+	$(CC) $(CFLAGS) -I include -o test_all test/test_all.c src/*.c -lm && ./test_all
 
 clean:
-	rm -f $(OUT)
+	rm -f test_all
 
 .PHONY: all test clean
